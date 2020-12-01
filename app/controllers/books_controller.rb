@@ -8,6 +8,7 @@ class BooksController < ApplicationController
   def index
     @books = Book.all
     @booknew = Book.new
+    @book = Book.new
   end
 
   def create
@@ -17,6 +18,7 @@ class BooksController < ApplicationController
       redirect_to book_path(@book), notice: "You have created book successfully."
     else
       @books = Book.all
+      @booknew = Book.new
       render 'index'
     end
   end
